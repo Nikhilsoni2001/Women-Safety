@@ -1,7 +1,9 @@
-package com.womensafety.womensafety
+package com.womensafety.womensafety.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.womensafety.womensafety.R
+import com.womensafety.womensafety.fragment.LoginFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -9,7 +11,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, LoginFragment()).commit()
+            .replace(
+                R.id.container,
+                LoginFragment()
+            ).commit()
 
     }
 }

@@ -1,19 +1,20 @@
-package com.womensafety.womensafety
+package com.womensafety.womensafety.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.womensafety.womensafety.R
 
-class LoginFragment : Fragment() {
+
+class  CreateAccountThreeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
-
+        val view = inflater.inflate(R.layout.fragment_create_account_three, container, false)
 
         return view
     }
