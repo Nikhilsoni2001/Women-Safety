@@ -41,4 +41,7 @@ dependencies {
 //    Country code picker
     implementation 'com.hbb20:ccp:2.3.1'
 
+//    Pin View
+    implementation 'com.chaos.view:pinview:1.4.3'
+
 }

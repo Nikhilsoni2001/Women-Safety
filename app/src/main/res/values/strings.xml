@@ -21,4 +21,8 @@
     <string name="other">Other</string>
     <string name="select_your_age">Select Your Age</string>
     <string name="mobile">Phone Number</string>
+    <string name="code">Co\nde</string>
+    <string name="verification">Verification</string>
+    <string name="enter_one_time_password">Enter One Time Password</string>
+    <string name="verify_code">Verify Code</string>
 </resources>
