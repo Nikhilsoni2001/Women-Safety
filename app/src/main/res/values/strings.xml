@@ -9,8 +9,7 @@
     <string name="remember_me">Remember Me</string>
     <string name="forget_password">Forget Password?</string>
     <string name="create_account">Create Account</string>
-    <string name="create">Create</string>
-    <string name="account">Account</string>
+    <string name="create">Create\nAccount</string>
     <string name="full_name">Full Name</string>
     <string name="email">Email</string>
     <string name="next">Next</string>

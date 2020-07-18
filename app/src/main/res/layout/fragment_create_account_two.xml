@@ -15,45 +15,24 @@
         android:paddingTop="16dp">
 
         <ImageView
-            android:id="@+id/login_back_button"
+            android:id="@+id/create2_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:src="@drawable/ic_action_back" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/create"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="4dp">
-
-            <TextView
-                android:id="@+id/create"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="2dp"
-                android:text="@string/create"
-                android:textColor="@android:color/black"
-                android:textSize="45sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/create"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="2dp"
-                android:fontFamily="sans-serif"
-                android:text="@string/account"
-                android:textColor="@android:color/black"
-                android:textSize="45sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="18dp"
+            android:padding="4dp"
+            android:text="@string/create"
+            android:textColor="@android:color/black"
+            android:textSize="45sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/edit_query"
@@ -73,6 +52,7 @@
                 android:textSize="16sp" />
 
             <RadioGroup
+                android:id="@+id/rbGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -80,18 +60,21 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioMale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/male" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioFemale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
                     android:text="@string/female" />
 
-                <RadioButton
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioOther"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -115,6 +98,7 @@
                 android:textSize="16sp" />
 
             <DatePicker
+                android:id="@+id/agePicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
