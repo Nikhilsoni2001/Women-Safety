@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".fragment.LoginFragment">
+    tools:context=".fragment.login.LoginFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -83,7 +83,7 @@
 
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnNext"
+                android:id="@+id/btnVerifyCode"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"

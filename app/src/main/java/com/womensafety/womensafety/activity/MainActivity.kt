@@ -3,7 +3,7 @@ package com.womensafety.womensafety.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.womensafety.womensafety.R
-import com.womensafety.womensafety.fragment.LoginFragment
+import com.womensafety.womensafety.fragment.login.LoginFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

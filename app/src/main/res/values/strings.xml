@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Women Safety</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -25,4 +24,20 @@
     <string name="verification">Verification</string>
     <string name="enter_one_time_password">Enter One Time Password</string>
     <string name="verify_code">Verify Code</string>
+    <string name="forget_password_forget">Forget\nPassword</string>
+    <string name="email_selection_details">Provide your account\'s email for which you want to reset your password!</string>
+    <string name="make_selection">Make\nSelection</string>
+    <string name="make_selection_details">Select which contact detail should we use to reset yur password?</string>
+    <string name="via_sms">via sms:</string>
+    <string name="dummy_mobile">+91-9825569810</string>
+    <string name="via_email">via email:</string>
+    <string name="dummy_email">xyz@gmail.com</string>
+    <string name="new_credentials">New\nCredentials</string>
+    <string name="new_credentials_detail">Your identity has been verified!!\nSet your new password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="ok">Ok</string>
+    <string name="password_updated">Password\nUpdated</string>
+    <string name="password_updated_details">Your password has been updated!!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
