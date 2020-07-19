@@ -1,6 +1,5 @@
 package com.womensafety.womensafety.fragment.signup
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,11 +12,7 @@ import kotlinx.android.synthetic.main.fragment_create_account_two.view.*
 
 class CreateAccountTwoFragment : Fragment() {
 
-    lateinit var gender: String
-    private val sharedPref = activity?.getSharedPreferences(
-        getString(R.string.user_preferences),
-        Context.MODE_PRIVATE
-    )
+    private lateinit var gender: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,32 +24,47 @@ class CreateAccountTwoFragment : Fragment() {
         val day = view.agePicker.dayOfMonth
         val month = view.agePicker.month
         val year = view.agePicker.year
-        val date: String = "$day/$month/$year"
+        val date = "$day/$month/$year"
 
         val male = view.radioMale
         val female = view.radioFemale
         val other = view.radioOther
 
-        when {
-            male.isChecked -> {
-                gender = male.text.toString()
-            }
-            female.isChecked -> {
-                gender = female.text.toString()
-            }
-            other.isChecked -> {
-                gender = female.text.toString()
+        view.rbGender.setOnCheckedChangeListener { _, _ ->
+            when {
+                male.isChecked -> {
+                    gender = male.text.toString()
+                }
+                female.isChecked -> {
+                    gender = female.text.toString()
+                }
+                other.isChecked -> {
+                    gender = other.text.toString()
+                }
             }
         }
 
+        val data = this.arguments
+        val fullName = data?.getString("fullName")
+        val userName = data?.getString("userName")
+        val email = data?.getString("email")
+        val password = data?.getString("password")
+
+
         view.btnNextThree.setOnClickListener {
             if (male.isChecked || female.isChecked || other.isChecked) {
-                savePref(gender, date)
-                fragmentManager?.beginTransaction()
-                    ?.replace(
-                        R.id.container,
-                        CreateAccountThreeFragment()
-                    )?.commit()
+
+                val frag = CreateAccountThreeFragment()
+                val bundle = Bundle()
+                bundle.putString("fullName", fullName)
+                bundle.putString("userName", userName)
+                bundle.putString("email", email)
+                bundle.putString("password", password)
+                bundle.putString("gender", gender)
+                bundle.putString("dob", date)
+                frag.arguments = bundle
+
+                fragmentManager?.beginTransaction()?.replace(R.id.container, frag)?.commit()
             } else {
                 Toast.makeText(context, "Please select your gender!!", Toast.LENGTH_SHORT)
                     .show()
@@ -77,10 +87,5 @@ class CreateAccountTwoFragment : Fragment() {
                 )?.commit()
         }
         return view
-    }
-
-    private fun savePref(gender: String, dob: String) {
-        sharedPref?.edit()?.putString("gender", gender)?.apply()
-        sharedPref?.edit()?.putString("age", dob)?.apply()
     }
 }

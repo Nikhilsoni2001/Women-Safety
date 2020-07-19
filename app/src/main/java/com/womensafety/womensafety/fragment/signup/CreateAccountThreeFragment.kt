@@ -16,10 +16,7 @@ import kotlinx.android.synthetic.main.fragment_create_account_three.view.*
 
 
 class  CreateAccountThreeFragment : Fragment() {
-    private val sharedPref = activity?.getSharedPreferences(
-        getString(R.string.user_preferences),
-        Context.MODE_PRIVATE
-    )
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,12 +24,20 @@ class  CreateAccountThreeFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_create_account_three, container, false)
 
+        val data = this.arguments
+        val fullName = data?.getString("fullName")
+        val userName = data?.getString("userName")
+        val email = data?.getString("email")
+        val password = data?.getString("password")
+        val gender = data?.getString("gender")
+        val dob = data?.getString("dob")
+
         view.btnNextTwo.setOnClickListener {
             if (Validations.validateMobile(etMobile.text.toString().trim())) {
                 MOBILE.error = null
                 val countryCodePicker = view.countryCodeHolder.selectedCountryCode
                 val mobile = view.etMobile.text.toString().trim()
-                savePref(countryCodePicker, mobile)
+
                 fragmentManager?.beginTransaction()
                     ?.replace(
                         R.id.container,
@@ -59,10 +64,5 @@ class  CreateAccountThreeFragment : Fragment() {
                 )?.commit()
         }
         return view
-    }
-
-    private fun savePref(countryCodePicker: String, mobile: String) {
-        sharedPref?.edit()?.putString("countryCode", countryCodePicker)?.apply()
-        sharedPref?.edit()?.putString("mobile", mobile)?.apply()
     }
 }

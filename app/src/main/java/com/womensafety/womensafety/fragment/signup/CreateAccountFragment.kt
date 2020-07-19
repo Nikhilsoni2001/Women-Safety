@@ -1,6 +1,5 @@
 package com.womensafety.womensafety.fragment.signup
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,11 +13,6 @@ import kotlinx.android.synthetic.main.fragment_create_account.*
 import kotlinx.android.synthetic.main.fragment_create_account.view.*
 
 class CreateAccountFragment : Fragment() {
-
-    private val sharedPref = activity?.getSharedPreferences(
-        getString(R.string.user_preferences),
-        Context.MODE_PRIVATE
-    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,13 +49,16 @@ class CreateAccountFragment : Fragment() {
                         Password.error = null
 //                        continue
 
-                        val name = etFullName.text.toString().trim()
-                        val user = etUsername.text.toString().trim()
-                        val email = etEmail.text.toString().trim()
-                        val password = etPassword.text.toString().trim()
-                        savePref(name, user, email, password)
+                        val frag = CreateAccountTwoFragment()
+                        val bundle = Bundle()
+                        bundle.putString("fullName", etFullName.text.toString().trim())
+                        bundle.putString("userName", etUsername.text.toString().trim())
+                        bundle.putString("email", etEmail.text.toString().trim())
+                        bundle.putString("password", etPassword.text.toString().trim())
+                        frag.arguments = bundle
+
                         fragmentManager?.beginTransaction()
-                            ?.replace(R.id.container, CreateAccountTwoFragment())?.commit()
+                            ?.replace(R.id.container, frag)?.commit()
                     } else {
                         Password.error = "Password is too Short!!"
                     }
@@ -74,12 +71,5 @@ class CreateAccountFragment : Fragment() {
         } else {
             FullName.error = "Name is too Short!!"
         }
-    }
-
-    private fun savePref(fullName: String, userName: String, email: String, password: String) {
-        sharedPref?.edit()?.putString("fullname", fullName)?.apply()
-        sharedPref?.edit()?.putString("username", userName)?.apply()
-        sharedPref?.edit()?.putString("email", email)?.apply()
-        sharedPref?.edit()?.putString("password", password)?.apply()
     }
 }
