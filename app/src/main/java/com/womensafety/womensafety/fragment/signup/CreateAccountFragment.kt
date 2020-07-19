@@ -20,13 +20,13 @@ class CreateAccountFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_create_account, container, false)
 
-        view.create1_back_button.setOnClickListener {  }
+//        view.create1_back_button.setOnClickListener {  }
 
-        view.btnNext.setOnClickListener {
+        view.btnNextOne.setOnClickListener {
             callNextSignUpScreen()
         }
 
-        view.btnLogin.setOnClickListener {
+        view.btnLoginOne.setOnClickListener {
             fragmentManager?.beginTransaction()?.replace(R.id.container, LoginFragment())?.commit()
         }
 

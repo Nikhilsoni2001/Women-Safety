@@ -105,8 +105,9 @@
                 android:datePickerMode="spinner" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnNext"
+                android:id="@+id/btnNextThree"
                 android:layout_width="200dp"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:text="@string/next"
@@ -115,6 +116,7 @@
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
+                android:id="@+id/btnLoginThree"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/login"

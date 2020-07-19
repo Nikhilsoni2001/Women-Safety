@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.womensafety.womensafety.R
 import com.womensafety.womensafety.fragment.login.LoginFragment
-import kotlinx.android.synthetic.main.fragment_create_account.view.*
-import kotlinx.android.synthetic.main.fragment_create_account_two.view.btnNext
+import kotlinx.android.synthetic.main.fragment_create_account_two.view.*
 
 class CreateAccountTwoFragment : Fragment() {
 
@@ -45,7 +44,7 @@ class CreateAccountTwoFragment : Fragment() {
 //            }
 //        }
 
-        view.btnNext.setOnClickListener {
+        view.btnNextThree.setOnClickListener {
             fragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.container,
@@ -53,7 +52,7 @@ class CreateAccountTwoFragment : Fragment() {
                 )?.commit()
         }
 
-        view.btnLogin.setOnClickListener {
+        view.btnLoginThree.setOnClickListener {
             fragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.container,
