@@ -15,7 +15,7 @@
         android:paddingTop="16dp">
 
         <ImageView
-            android:id="@+id/create1_back_button"
+            android:id="@+id/create3_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -43,6 +43,7 @@
             android:orientation="vertical">
 
             <com.hbb20.CountryCodePicker
+                android:id="@+id/countryCodeHolder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"

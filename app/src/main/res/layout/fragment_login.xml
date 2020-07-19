@@ -15,10 +15,11 @@
         android:paddingTop="16dp">
 
         <ImageView
-            android:id="@+id/create1_back_button"
+            android:id="@+id/login_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:contentDescription="@string/back"
             android:src="@drawable/ic_action_back" />
 
         <RelativeLayout
@@ -63,6 +64,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
+                android:id="@+id/Username"
                 android:layout_height="wrap_content"
                 android:hint="@string/username"
                 android:textColorHint="@android:color/black"
@@ -74,6 +76,7 @@
                 app:startIconTint="@android:color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="36dp"
@@ -89,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:hint="@string/password"
+                android:id="@+id/Password"
                 app:boxStrokeColor="@android:color/black"
                 app:boxStrokeWidthFocused="2dp"
                 app:hintTextColor="@android:color/black"
@@ -99,6 +103,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/etPassword"
                     android:maxLines="1"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -157,7 +162,7 @@
             android:gravity="center_horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCreateAccount"
+                android:id="@+id/btnCreateAccountLogin"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
