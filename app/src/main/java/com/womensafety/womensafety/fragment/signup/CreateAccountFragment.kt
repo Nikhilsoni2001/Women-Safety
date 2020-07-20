@@ -34,7 +34,6 @@ class CreateAccountFragment : Fragment() {
             fragmentManager?.beginTransaction()?.replace(R.id.container, WelcomeScreenFragment())
                 ?.commit()
         }
-
         return view
     }
 
