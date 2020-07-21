@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "405506901858-hjkm8brdsc49srsi36t3sb62vpn2o96d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.womensafety.womensafety",
+            "certificate_hash": "482fc7d4306f7a32056f215779971f44bc201719"
+          }
+        },
+        {
+          "client_id": "405506901858-dhlnq88atocdukj17g2a91b9vfq1s1bo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.womensafety.womensafety",
+            "certificate_hash": "cdca0e52ded6d22c493bfa8d3359905e3fd4b764"
+          }
+        },
+        {
           "client_id": "405506901858-nag0476jqo9rg85i7tts5nt8hvfgg5ps.apps.googleusercontent.com",
           "client_type": 3
         }
