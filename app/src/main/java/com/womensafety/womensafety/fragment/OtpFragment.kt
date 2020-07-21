@@ -13,15 +13,25 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.database.FirebaseDatabase
 import com.womensafety.womensafety.R
 import com.womensafety.womensafety.fragment.signup.CreateAccountFragment
+import com.womensafety.womensafety.util.UserData
 import kotlinx.android.synthetic.main.fragment_otp.view.*
 import java.util.concurrent.TimeUnit
 
 class OtpFragment : Fragment() {
 
     lateinit var codeBySystem: String
+    var fullName: String? = null
+//    lateinit var codeBySystem: String
+//    lateinit var codeBySystem: String
+//    lateinit var codeBySystem: String
+//    lateinit var codeBySystem: String
+//    lateinit var codeBySystem: String
     val pinView = activity?.findViewById<PinView>(R.id.pin_view)
+
+    //    val data by lazy { this.arguments }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,18 +40,17 @@ class OtpFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_otp, container, false)
 
-        val data = this.arguments
-//        val fullName = data?.getString("fullName")
-//        val userName = data?.getString("userName")
-//        val email = data?.getString("email")
-//        val password = data?.getString("password")
-//        val gender = data?.getString("gender")
-//        val dob = data?.getString("dob")
-        val phone = data?.getString("phone")
+        fullName = arguments?.getString("fullName")
+//        val userName = arguments?.getString("userName")
+//        val email = arguments?.getString("email")
+//        val password = arguments?.getString("password")
+//        val gender = arguments?.getString("gender")
+//        val dob = arguments?.getString("dob")
+//        val phone = arguments?.getString("phone")
 
-        if (phone != null) {
-            sendOtpToUser(phone)
-        }
+//        if (phone != null) {
+//            sendOtpToUser(phone)
+//        }
 
 
         view.btnVerifyCode.setOnClickListener {
@@ -104,7 +113,7 @@ class OtpFragment : Fragment() {
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(context, "Verification Completed!!", Toast.LENGTH_SHORT).show()
+                    storeNewUsersData()
                 } else {
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         Toast.makeText(
@@ -116,6 +125,13 @@ class OtpFragment : Fragment() {
                     }
                 }
             }
+    }
+
+    private fun storeNewUsersData() {
+        // Write a message to the database
+        val myRef = FirebaseDatabase.getInstance().getReference("Users")
+//        val addNewUser = UserData(fullName, userName, email, phone, password, dob, gender)
+        myRef.setValue("")
     }
 
     private fun callNextScreenFromOtp() {
