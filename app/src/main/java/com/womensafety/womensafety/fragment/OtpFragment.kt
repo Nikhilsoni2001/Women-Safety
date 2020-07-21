@@ -23,15 +23,16 @@ import java.util.concurrent.TimeUnit
 class OtpFragment : Fragment() {
 
     lateinit var codeBySystem: String
-    var fullName: String? = null
-//    lateinit var codeBySystem: String
-//    lateinit var codeBySystem: String
-//    lateinit var codeBySystem: String
-//    lateinit var codeBySystem: String
-//    lateinit var codeBySystem: String
-    val pinView = activity?.findViewById<PinView>(R.id.pin_view)
 
-    //    val data by lazy { this.arguments }
+    private var fullName: String? = null
+    private var userName: String? = null
+    private var email: String? = null
+    private var password: String? = null
+    private var gender: String? = null
+    private var dob: String? = null
+    private var phone: String? = null
+
+    val pinView = activity?.findViewById<PinView>(R.id.pin_view)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,17 +41,18 @@ class OtpFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_otp, container, false)
 
-        fullName = arguments?.getString("fullName")
-//        val userName = arguments?.getString("userName")
-//        val email = arguments?.getString("email")
-//        val password = arguments?.getString("password")
-//        val gender = arguments?.getString("gender")
-//        val dob = arguments?.getString("dob")
-//        val phone = arguments?.getString("phone")
+        val data = arguments
+        fullName = data?.getString("fullName")
+        userName = data?.getString("userName")
+        email = data?.getString("email")
+        password = data?.getString("password")
+        gender = data?.getString("gender")
+        dob = data?.getString("dob")
+        phone = data?.getString("phone")
 
-//        if (phone != null) {
-//            sendOtpToUser(phone)
-//        }
+        if (phone != null) {
+            sendOtpToUser("$phone")
+        }
 
 
         view.btnVerifyCode.setOnClickListener {
@@ -130,8 +132,8 @@ class OtpFragment : Fragment() {
     private fun storeNewUsersData() {
         // Write a message to the database
         val myRef = FirebaseDatabase.getInstance().getReference("Users")
-//        val addNewUser = UserData(fullName, userName, email, phone, password, dob, gender)
-        myRef.setValue("")
+        val addNewUser = UserData(fullName, userName, email, phone, password, dob, gender)
+        myRef.setValue(addNewUser)
     }
 
     private fun callNextScreenFromOtp() {

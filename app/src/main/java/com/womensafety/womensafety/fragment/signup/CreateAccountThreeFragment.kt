@@ -35,7 +35,7 @@ class  CreateAccountThreeFragment : Fragment() {
         view.btnNextTwo.setOnClickListener {
             val mobile: String = view.etMobileNumber.text.toString().trim()
 
-            val phoneNumber = "+$countryCodePicker.$mobile"
+            val phoneNumber = "+$countryCodePicker$mobile"
 
             val frag = OtpFragment()
             val bundle = Bundle()
