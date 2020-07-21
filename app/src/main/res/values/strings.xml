@@ -45,6 +45,4 @@
     <string name="register">Register</string>
     <string name="exit">Exit</string>
     <string name="back">Back</string>
-
-    <string name="user_preferences">User Preferences</string>
 </resources>

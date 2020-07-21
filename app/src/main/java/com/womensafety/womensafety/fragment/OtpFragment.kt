@@ -1,5 +1,6 @@
 package com.womensafety.womensafety.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.database.FirebaseDatabase
 import com.womensafety.womensafety.R
+import com.womensafety.womensafety.activity.HomeActivity
 import com.womensafety.womensafety.fragment.signup.CreateAccountFragment
 import com.womensafety.womensafety.util.UserData
 import kotlinx.android.synthetic.main.fragment_otp.view.*
@@ -57,10 +59,6 @@ class OtpFragment : Fragment() {
 
         view.btnVerifyCode.setOnClickListener {
             callNextScreenFromOtp()
-//            activity?.let {
-//                val intent = Intent(it, HomeActivity::class.java)
-//                startActivity(intent)
-//            }
         }
         view.otp_exit.setOnClickListener {
             fragmentManager?.beginTransaction()?.replace(R.id.container, CreateAccountFragment())
@@ -116,6 +114,10 @@ class OtpFragment : Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     storeNewUsersData()
+                    activity?.let {
+                        val intent = Intent(it, HomeActivity::class.java)
+                        startActivity(intent)
+                    }
                 } else {
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         Toast.makeText(
@@ -130,10 +132,9 @@ class OtpFragment : Fragment() {
     }
 
     private fun storeNewUsersData() {
-        // Write a message to the database
         val myRef = FirebaseDatabase.getInstance().getReference("Users")
         val addNewUser = UserData(fullName, userName, email, phone, password, dob, gender)
-        myRef.setValue(addNewUser)
+        myRef.child("$userName").setValue(addNewUser)
     }
 
     private fun callNextScreenFromOtp() {
