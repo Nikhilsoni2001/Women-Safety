@@ -28,14 +28,15 @@ class LoginFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
         view.btnLogin.setOnClickListener {
-            val username = etUsername.text.toString().trim()
+            val codePicker =view.countryCodeHolderLogin.fullNumber
+            val mobile = view.etMobileNumberLogin.text.toString().trim()
             val password = etPassword.text.toString().trim()
-
+            val mobileNumber="+$codePicker$mobile"
             if (ConnectionManager().isNetworkAvailable(context)) {
 
                 val checkUser: Query =
-                    FirebaseDatabase.getInstance().getReference("Users").orderByChild("userName")
-                        .equalTo(username)
+                    FirebaseDatabase.getInstance().getReference("Users").orderByChild("phoneNo")
+                        .equalTo(mobileNumber)
 
                 checkUser.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
@@ -44,25 +45,25 @@ class LoginFragment : Fragment() {
 
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
-                            view.Username.error = null
-                            view.Username.isErrorEnabled = false
+                            view.MobileLogin.error = null
+                            view.MobileLogin.isErrorEnabled = false
 
                             val systemPassword: String? =
-                                snapshot.child(username).child("password")
+                                snapshot.child(mobileNumber).child("password")
                                     .getValue(String::class.java)
 
                             if (systemPassword.equals(password)) {
                                 view.Password.error = null
                                 view.Password.isErrorEnabled = false
-                                val fullname = snapshot.child(username).child("fullName")
+                                val fullname = snapshot.child(mobileNumber).child("fullName")
                                     .getValue(String::class.java)
                                 val email =
-                                    snapshot.child(username).child("email")
+                                    snapshot.child(mobileNumber).child("email")
                                         .getValue(String::class.java)
-                                val phone = snapshot.child(username).child("phoneNo")
+                                val phone = snapshot.child(mobileNumber).child("phoneNo")
                                     .getValue(String::class.java)
                                 val date =
-                                    snapshot.child(username).child("date")
+                                    snapshot.child(mobileNumber).child("date")
                                         .getValue(String::class.java)
                                 context.let {
                                     startActivity(Intent(it, HomeActivity::class.java))

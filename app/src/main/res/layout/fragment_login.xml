@@ -48,14 +48,14 @@
         android:textColor="@color/colorPrimary"
         android:textSize="45sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/countryCodeHolder"
+        app:layout_constraintBottom_toTopOf="@+id/countryCodeHolderLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <com.hbb20.CountryCodePicker
-        android:id="@+id/countryCodeHolder"
+        android:id="@+id/countryCodeHolderLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -65,7 +65,7 @@
         app:ccp_showFlag="true"
         app:ccp_showFullName="true"
         app:ccp_showNameCode="true"
-        app:layout_constraintBottom_toTopOf="@+id/MOBILE"
+        app:layout_constraintBottom_toTopOf="@+id/MobileLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnForgetLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MOBILE"
+        app:layout_constraintTop_toBottomOf="@+id/MobileLogin"
         app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_action_password"
         app:startIconTint="@android:color/black">
@@ -98,7 +98,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/MOBILE"
+        android:id="@+id/MobileLogin"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -113,12 +113,12 @@
         app:layout_constraintBottom_toTopOf="@+id/Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countryCodeHolder"
+        app:layout_constraintTop_toBottomOf="@+id/countryCodeHolderLogin"
         app:startIconDrawable="@drawable/ic_action_mobile"
         app:startIconTint="@android:color/black">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etMobileNumber"
+            android:id="@+id/etMobileNumberLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
