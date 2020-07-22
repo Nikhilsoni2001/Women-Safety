@@ -17,6 +17,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.database.FirebaseDatabase
 import com.womensafety.womensafety.R
 import com.womensafety.womensafety.activity.HomeActivity
+import com.womensafety.womensafety.fragment.forget.NewPasswordFragment
 import com.womensafety.womensafety.fragment.signup.CreateAccountFragment
 import com.womensafety.womensafety.util.UserData
 import kotlinx.android.synthetic.main.fragment_otp.view.*
@@ -33,6 +34,7 @@ class OtpFragment : Fragment() {
     private var gender: String? = null
     private var dob: String? = null
     private var phone: String? = null
+    private var whatToDo: String? = null
 
     val pinView = activity?.findViewById<PinView>(R.id.pin_view)
 
@@ -51,6 +53,7 @@ class OtpFragment : Fragment() {
         gender = data?.getString("gender")
         dob = data?.getString("dob")
         phone = data?.getString("phone")
+        whatToDo = data?.getString("whatToDo")
 
         if (phone != null) {
             sendOtpToUser("$phone")
@@ -113,10 +116,15 @@ class OtpFragment : Fragment() {
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    storeNewUsersData()
-                    activity?.let {
-                        val intent = Intent(it, HomeActivity::class.java)
-                        startActivity(intent)
+                    if (whatToDo.equals("updateData")) {
+                        updateOldUserData()
+                    } else {
+                        storeNewUsersData()
+                        activity?.let {
+                            val intent = Intent(it, HomeActivity::class.java)
+                            startActivity(intent)
+                        }
+
                     }
                 } else {
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
@@ -131,10 +139,18 @@ class OtpFragment : Fragment() {
             }
     }
 
+    private fun updateOldUserData() {
+        val frag = NewPasswordFragment()
+        val data = Bundle()
+        data.putString("phoneNo", phone)
+        frag.arguments = data
+        fragmentManager?.beginTransaction()?.replace(R.id.container, frag)?.commit()
+    }
+
     private fun storeNewUsersData() {
         val myRef = FirebaseDatabase.getInstance().getReference("Users")
         val addNewUser = UserData(fullName, userName, email, phone, password, dob, gender)
-        myRef.child("$userName").setValue(addNewUser)
+        myRef.child("$phone").setValue(addNewUser)
     }
 
     private fun callNextScreenFromOtp() {

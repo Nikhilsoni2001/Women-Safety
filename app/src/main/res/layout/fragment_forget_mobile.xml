@@ -25,7 +25,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/ic_action_lock" />
 
 
@@ -54,9 +54,21 @@
             android:textAlignment="center"
             android:textSize="18sp" />
 
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/countryCodeHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/black_border"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_showFlag="true"
+            app:ccp_showFullName="true"
+            app:ccp_showNameCode="true" />
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
+            android:id="@+id/MOBILEForget"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="@string/mobile"
@@ -68,6 +80,7 @@
             app:startIconTint="@android:color/black">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMobileNumberForget"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"

@@ -34,7 +34,7 @@
     <string name="new_credentials">New\nCredentials</string>
     <string name="new_credentials_detail">Your identity has been verified!!\nSet your new password</string>
     <string name="confirm_password">Confirm Password</string>
-    <string name="ok">Ok</string>
+    <string name="update">Update</string>
     <string name="password_updated">Password\nUpdated</string>
     <string name="password_updated_details">Your password has been updated!!</string>
     <!-- TODO: Remove or change this placeholder text -->

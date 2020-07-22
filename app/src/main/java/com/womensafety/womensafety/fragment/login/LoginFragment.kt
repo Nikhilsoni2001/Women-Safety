@@ -92,6 +92,7 @@ class LoginFragment : Fragment() {
                             ?.replace(R.id.container, WelcomeScreenFragment())?.commit()
                     }
                 builder.create().show()
+                activity?.finish()
             }
         }
 
