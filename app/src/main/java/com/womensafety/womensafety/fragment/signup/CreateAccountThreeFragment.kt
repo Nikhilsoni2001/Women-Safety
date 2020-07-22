@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.fragment_create_account_three.view.*
 
 
 class  CreateAccountThreeFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
