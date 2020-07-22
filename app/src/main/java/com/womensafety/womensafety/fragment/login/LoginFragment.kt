@@ -16,12 +16,8 @@ import com.womensafety.womensafety.fragment.WelcomeScreenFragment
 import com.womensafety.womensafety.fragment.forget.MakeSelectionFragment
 import com.womensafety.womensafety.fragment.signup.CreateAccountFragment
 import com.womensafety.womensafety.util.ConnectionManager
-import kotlinx.android.synthetic.main.fragment_create_account.*
-import kotlinx.android.synthetic.main.fragment_create_account.view.*
 import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.android.synthetic.main.fragment_login.etPassword
 import kotlinx.android.synthetic.main.fragment_login.view.*
-import kotlinx.android.synthetic.main.fragment_login.view.Password
 
 class LoginFragment : Fragment() {
     override fun onCreateView(
