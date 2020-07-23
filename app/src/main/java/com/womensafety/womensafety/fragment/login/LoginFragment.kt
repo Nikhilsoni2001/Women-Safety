@@ -1,7 +1,9 @@
 package com.womensafety.womensafety.fragment.login
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.Settings
 import android.view.LayoutInflater
@@ -16,10 +18,15 @@ import com.womensafety.womensafety.fragment.WelcomeScreenFragment
 import com.womensafety.womensafety.fragment.forget.ForgetMobileFragment
 import com.womensafety.womensafety.fragment.signup.CreateAccountFragment
 import com.womensafety.womensafety.util.ConnectionManager
+import com.womensafety.womensafety.util.SessionManager
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
 
 class LoginFragment : Fragment() {
+
+    lateinit var sessionManager: SessionManager
+    lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,6 +39,10 @@ class LoginFragment : Fragment() {
             val mobile = view.etMobileNumberLogin.text.toString().trim()
             val password = etPassword.text.toString().trim()
             val mobileNumber="+$codePicker$mobile"
+
+            sessionManager = SessionManager(activity as Context)
+            sharedPreferences = (activity as Context).getSharedPreferences(sessionManager.PREF_NAME, sessionManager.PRIVATE_MODE)
+
             if (ConnectionManager().isNetworkAvailable(context)) {
 
                 val checkUser: Query =
@@ -66,6 +77,9 @@ class LoginFragment : Fragment() {
                                     snapshot.child(mobileNumber).child("date")
                                         .getValue(String::class.java)
                                 context.let {
+                                    sharedPreferences.edit().putString("phone", phone).apply()
+                                    sharedPreferences.edit().putString("password", password).apply()
+                                    sessionManager.setLogin(true)
                                     startActivity(Intent(it, HomeActivity::class.java))
                                 }
                             } else {

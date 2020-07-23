@@ -1,6 +1,8 @@
 package com.womensafety.womensafety.fragment
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +21,7 @@ import com.womensafety.womensafety.R
 import com.womensafety.womensafety.activity.HomeActivity
 import com.womensafety.womensafety.fragment.forget.NewPasswordFragment
 import com.womensafety.womensafety.fragment.signup.CreateAccountFragment
+import com.womensafety.womensafety.util.SessionManager
 import com.womensafety.womensafety.util.UserData
 import kotlinx.android.synthetic.main.fragment_otp.view.*
 import java.util.concurrent.TimeUnit
@@ -26,6 +29,8 @@ import java.util.concurrent.TimeUnit
 class OtpFragment : Fragment() {
 
     lateinit var codeBySystem: String
+    lateinit var sessionManager: SessionManager
+    lateinit var sharedPreferences: SharedPreferences
 
     private var fullName: String? = null
     private var userName: String? = null
@@ -42,6 +47,9 @@ class OtpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        sessionManager = SessionManager(activity as Context)
+        sharedPreferences = (activity as Context).getSharedPreferences(sessionManager.PREF_NAME, sessionManager.PRIVATE_MODE)
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_otp, container, false)
 
@@ -121,6 +129,7 @@ class OtpFragment : Fragment() {
                     } else {
                         storeNewUsersData()
                         activity?.let {
+                            sessionManager.setLogin(true)
                             val intent = Intent(it, HomeActivity::class.java)
                             startActivity(intent)
                         }
@@ -150,6 +159,8 @@ class OtpFragment : Fragment() {
     private fun storeNewUsersData() {
         val myRef = FirebaseDatabase.getInstance().getReference("Users")
         val addNewUser = UserData(fullName, userName, email, phone, password, dob, gender)
+        sharedPreferences.edit().putString("phone", phone).apply()
+        sharedPreferences.edit().putString("password", password).apply()
         myRef.child("$phone").setValue(addNewUser)
     }
 
