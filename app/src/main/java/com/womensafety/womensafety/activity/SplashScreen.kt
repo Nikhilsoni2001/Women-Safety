@@ -43,8 +43,10 @@ class SplashScreen : AppCompatActivity() {
             startActivity(intent)
             finish()
         } else {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, WelcomeScreenFragment()).commit()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+
         }
     }
 
