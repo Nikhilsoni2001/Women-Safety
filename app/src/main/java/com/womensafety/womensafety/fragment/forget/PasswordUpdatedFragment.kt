@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.womensafety.womensafety.R
+import com.womensafety.womensafety.fragment.WelcomeScreenFragment
 import com.womensafety.womensafety.fragment.login.LoginFragment
 import kotlinx.android.synthetic.main.fragment_password_updated.view.*
 
@@ -18,6 +19,11 @@ class PasswordUpdatedFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_password_updated, container, false)
         view.btnLoginAgain.setOnClickListener {
             fragmentManager?.beginTransaction()?.replace(R.id.container, LoginFragment())?.commit()
+        }
+
+        view.passUpdated_back_button.setOnClickListener {
+            fragmentManager?.beginTransaction()?.replace(R.id.container, WelcomeScreenFragment())
+                ?.commit()
         }
         return view
     }

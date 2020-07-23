@@ -60,6 +60,10 @@ class NewPasswordFragment : Fragment() {
                 builder.create().show()
             }
         }
+        view.NewPW_back_button.setOnClickListener {
+            fragmentManager?.beginTransaction()?.replace(R.id.container, WelcomeScreenFragment())
+                ?.commit()
+        }
         return view
     }
 }

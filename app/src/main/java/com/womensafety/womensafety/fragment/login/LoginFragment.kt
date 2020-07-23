@@ -13,7 +13,7 @@ import com.google.firebase.database.*
 import com.womensafety.womensafety.R
 import com.womensafety.womensafety.activity.HomeActivity
 import com.womensafety.womensafety.fragment.WelcomeScreenFragment
-import com.womensafety.womensafety.fragment.forget.MakeSelectionFragment
+import com.womensafety.womensafety.fragment.forget.ForgetMobileFragment
 import com.womensafety.womensafety.fragment.signup.CreateAccountFragment
 import com.womensafety.womensafety.util.ConnectionManager
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -101,8 +101,8 @@ class LoginFragment : Fragment() {
             fragmentManager?.beginTransaction()?.replace(R.id.container, CreateAccountFragment())?.commit()
         }
 
-        view.btnForgetLogin.setOnClickListener {
-            fragmentManager?.beginTransaction()?.replace(R.id.container, MakeSelectionFragment())?.commit()
+        view.btnLoginWithOTP.setOnClickListener {
+            fragmentManager?.beginTransaction()?.replace(R.id.container, ForgetMobileFragment())?.commit()
         }
 
         view.login_back.setOnClickListener {

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.database.*
 import com.womensafety.womensafety.R
 import com.womensafety.womensafety.fragment.OtpFragment
+import com.womensafety.womensafety.fragment.login.LoginFragment
 import kotlinx.android.synthetic.main.fragment_forget_mobile.view.*
 
 class ForgetMobileFragment : Fragment() {
@@ -18,7 +19,7 @@ class ForgetMobileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_forget_mobile, container, false)
+        val view = inflater.inflate(R.layout.fragment_forget_mobile, container, false)
 
         view.btnVerifyCode.setOnClickListener {
             val codePicker = view.countryCodeHolder.fullNumber
@@ -51,6 +52,10 @@ class ForgetMobileFragment : Fragment() {
                     }
                 }
             })
+        }
+
+        view.forget_back_button.setOnClickListener {
+            fragmentManager?.beginTransaction()?.replace(R.id.container, LoginFragment())?.commit()
         }
         return view
 
