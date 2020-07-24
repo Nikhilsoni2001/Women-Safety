@@ -64,7 +64,7 @@ class CreateAccountTwoFragment : Fragment() {
                 bundle.putString("dob", date)
                 frag.arguments = bundle
 
-                fragmentManager?.beginTransaction()?.replace(R.id.container, frag)?.commit()
+                fragmentManager?.beginTransaction()?.replace(R.id.container, frag)?.addToBackStack("Three")?.commit()
             } else {
                 Toast.makeText(context, "Please select your gender!!", Toast.LENGTH_SHORT)
                     .show()

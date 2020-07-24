@@ -112,7 +112,7 @@ class LoginFragment : Fragment() {
         }
 
         view.btnCreateAccountLogin.setOnClickListener {
-            fragmentManager?.beginTransaction()?.replace(R.id.container, CreateAccountFragment())?.commit()
+            fragmentManager?.beginTransaction()?.replace(R.id.container, CreateAccountFragment())?.addToBackStack("One")?.commit()
         }
 
         view.btnLoginWithOTP.setOnClickListener {
