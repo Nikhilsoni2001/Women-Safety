@@ -1,5 +1,4 @@
 package com.womensafety.womensafety.fragment.login
-
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -107,12 +106,11 @@ class LoginFragment : Fragment() {
                             ?.replace(R.id.container, WelcomeScreenFragment())?.commit()
                     }
                 builder.create().show()
-                activity?.finish()
             }
         }
 
         view.btnCreateAccountLogin.setOnClickListener {
-            fragmentManager?.beginTransaction()?.replace(R.id.container, CreateAccountFragment())?.addToBackStack("One")?.commit()
+            fragmentManager?.beginTransaction()?.replace(R.id.container, CreateAccountFragment())?.commit()
         }
 
         view.btnLoginWithOTP.setOnClickListener {

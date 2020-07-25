@@ -39,18 +39,18 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.container, WelcomeScreenFragment()).commit()
             }
-//            is CreateAccountFragment -> {
-//                supportFragmentManager.beginTransaction()
-//                    .replace(R.id.container, WelcomeScreenFragment()).commit()
-//            }
-//            is CreateAccountTwoFragment -> {
-//                supportFragmentManager.beginTransaction()
-//                    .replace(R.id.container, CreateAccountFragment()).commit()
-//            }
-//            is CreateAccountThreeFragment -> {
-//                supportFragmentManager.beginTransaction()
-//                    .replace(R.id.container, CreateAccountTwoFragment()).commit()
-//            }
+            is CreateAccountFragment -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, WelcomeScreenFragment()).commit()
+            }
+            is CreateAccountTwoFragment -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, CreateAccountFragment()).commit()
+            }
+            is CreateAccountThreeFragment -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, CreateAccountTwoFragment()).commit()
+            }
             is ForgetMobileFragment -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.container, LoginFragment()).commit()

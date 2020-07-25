@@ -45,4 +45,7 @@
     <string name="exit">Exit</string>
     <string name="back">Back</string>
     <string name="login_with_otp">Login with OTP</string>
+
+//mapbox
+    <string name="mapbox_access_token">sk.eyJ1Ijoid29tZW5zYWZldHkiLCJhIjoiY2tkMDVpN2x2MHFhbjJzbXY1ZTF4OXU3ayJ9.Tc4igPnGCEg55wMOtgX1IA</string>
 </resources>

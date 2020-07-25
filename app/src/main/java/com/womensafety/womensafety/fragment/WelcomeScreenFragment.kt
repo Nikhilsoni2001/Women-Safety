@@ -25,7 +25,7 @@ class WelcomeScreenFragment : Fragment() {
 
         view.btnRegisterWelcome.setOnClickListener {
             fragmentManager?.beginTransaction()?.replace(R.id.container, CreateAccountFragment())
-                ?.addToBackStack("One")?.commit()
+                ?.commit()
         }
 
         return view

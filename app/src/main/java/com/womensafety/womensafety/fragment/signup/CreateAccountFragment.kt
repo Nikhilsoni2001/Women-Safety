@@ -57,7 +57,7 @@ class CreateAccountFragment : Fragment() {
                         frag.arguments = bundle
 
                         fragmentManager?.beginTransaction()
-                            ?.replace(R.id.container, frag)?.addToBackStack("Two")?.commit()
+                            ?.replace(R.id.container, frag)?.commit()
                     } else {
                         Password.error = "Password is too Short!!"
                     }
