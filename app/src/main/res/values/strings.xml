@@ -12,11 +12,11 @@
     <string name="full_name">Full Name</string>
     <string name="email">Email</string>
     <string name="next">Next</string>
-    <string name="choose_gender">Choose Gender</string>
+    <string name="choose_gender">Choose Gender :</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="other">Other</string>
-    <string name="select_your_age">Select Your Age</string>
+    <string name="select_your_age">Select Your Age :</string>
     <string name="mobile">Phone Number</string>
     <string name="code">Co\nde</string>
     <string name="verification">Verification</string>
